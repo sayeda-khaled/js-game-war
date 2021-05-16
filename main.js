@@ -61,8 +61,7 @@
 
       }
     }
-
-
+    //This function is to shuffle th4 deck of cards
     function shuffleArray(array) {
       for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -78,27 +77,48 @@
 
 
 
-
-  Player.prototype.deal = function () {
+  //deal cards for the players
+  Player.prototype.deal = function() {
     console.log('beginning of function', game.player1.hand);
-    console.log(deck.cards);
+    //console.log(deck.cards);
     for (i = 0; i < (deck.cards.length / 2); i++) {
-       this.hand.push(deck.cards[i]);
+      this.hand.push(deck.cards[i]);
     }
 
   }
 
-game.player1.deal();
-game.player2.deal();
+
+  game.player1.deal();
+  game.player2.deal();
 
   console.log('end of function', game.player1.hand);
 
 
-function Play(win, loose){
-  this.winn = win;
-  this.loose = loose;
-}
+  function Play(win, loose) {
+    this.winn = win;
+    this.loose = loose;
+  }
 
+
+  Play.prototype.compare = function() {
+    var firstPlayPlayer1 = game.player1.hand.length - 1;
+    var firstPlayPlayer2 = game.player2.hand.length - 1;
+    //console.log('firstPlayPlayer1', firstPlayPlayer1);
+
+
+  }
+
+  ///specifying who winns
+  Play.prototype.winners = function() {
+    if (game.player1.hand.length < 1) {
+      console.log('Player1 has lost!');
+    } else if (game.player2.hand.length < 1) {
+      console.log('Player2 has lost!');
+    };
+  }
+
+
+  ////
   // Deck.prototype.shuffle () {
 
   //   Math.floor((Math.random() * 13) + 1);// This is to generate a random number.. Chanve the (10) to what evert value you need..
