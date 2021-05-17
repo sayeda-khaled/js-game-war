@@ -69,8 +69,8 @@
         array[i] = array[j];
         array[j] = temp;
       }
+      shuffleArray(this.cards);
     }
-    shuffleArray(this.cards);
   }
 
   var deck = new Deck()
@@ -79,7 +79,7 @@
 
   //deal cards for the players
   Player.prototype.deal = function() {
-    console.log('beginning of function', game.player1.hand);
+
     //console.log(deck.cards);
     for (i = 0; i < (deck.cards.length / 2); i++) {
       this.hand.push(deck.cards[i]);
@@ -91,8 +91,8 @@
   game.player1.deal();
   game.player2.deal();
 
-  console.log('end of function', game.player1.hand);
-
+  console.log('Player1 Hand', game.player1.hand);
+  console.log('Player2 Hand', game.player2.hand);
 
   function Play(win, loose) {
     this.winn = win;
@@ -101,20 +101,39 @@
 
 
   Play.prototype.compare = function() {
-    var firstPlayPlayer1 = game.player1.hand.length - 1;
-    var firstPlayPlayer2 = game.player2.hand.length - 1;
-    //console.log('firstPlayPlayer1', firstPlayPlayer1);
+    // var firstPlayPlayer1 = game.player1.hand.length - 1;
+    // var firstPlayPlayer2 = game.player2.hand.length - 1;
+
+    for (let i = 0; i < game.player1.hand.lengthl; i++) {
+      for (let j = 0; j < game.player2.hand; j++) {
+        if (game.player1.hand[i] > (game.player2.hand)[j]) {
+          return game.player1.hand[i].push(game.player1.hand[i] + game.player2.hand[i]);
+
+        } else {
+          return game.player2.hand[i].push(game.player1.hand[i] + game.player2.hand[i]);
+
+        }
+      }
+    }
 
 
   }
 
-  ///specifying who winns
-  Play.prototype.winners = function() {
+  ///specifying who looses
+  Play.prototype.loosers = function() {
     if (game.player1.hand.length < 1) {
       console.log('Player1 has lost!');
     } else if (game.player2.hand.length < 1) {
       console.log('Player2 has lost!');
     };
+  }
+
+  Play.prototype.loosers = function() {
+    if (game.player1.hand = deck) {
+      console.log('Player1 is the winner!');
+    } else if (game.player2.hand = deck) {
+      console.log('player2 is the winnder!');
+    }
   }
 
 
