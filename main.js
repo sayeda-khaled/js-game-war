@@ -106,32 +106,37 @@
 
     for (let i = 0; i < game.player1.hand.lengthl; i++) {
       for (let j = 0; j < game.player2.hand; j++) {
-        if (game.player1.hand[i] > (game.player2.hand)[j]) {
-          return game.player1.hand[i].push(game.player1.hand[i] + game.player2.hand[i]);
-
-        } else {
-          return game.player2.hand[i].push(game.player1.hand[i] + game.player2.hand[i]);
-
+        if (game.player1.hand[i] > game.player2.hand[j]) {
+          game.player1.hand[i].push(game.player1.hand[i] + game.player2.hand[i]);
+          game.player2.hand[i].shift();
+          console.log('player1 won this round');
+        } else if (game.player2.hand[i] > game.player1.hand[j]) {
+          game.player2.hand[i].push(game.player1.hand[i] + game.player2.hand[i]);
+          game.player1.hand[i].shift();
+          console.log('player2 won this round');
+        } else if (game.player1.hand[i] == game.player2.hand[i]){
+          console.log('cards war!');
+        }
         }
       }
     }
 
 
-  }
+
 
   ///specifying who looses
-  Play.prototype.loosers = function() {
-    if (game.player1.hand.length < 1) {
-      console.log('Player1 has lost!');
-    } else if (game.player2.hand.length < 1) {
-      console.log('Player2 has lost!');
-    };
-  }
+  // Play.prototype.loosers = function() {
+  //   if (game.player1.hand.length < 1) {
+  //     console.log('Player1 has lost!');
+  //   } else if (game.player2.hand.length < 1) {
+  //     console.log('Player2 has lost!');
+  //   };
+  // }
 
   Play.prototype.loosers = function() {
-    if (game.player1.hand = deck) {
+    if (game.player1.hand.length == deck.length) {
       console.log('Player1 is the winner!');
-    } else if (game.player2.hand = deck) {
+    } else if (game.player2.hand.length == deck.length) {
       console.log('player2 is the winnder!');
     }
   }
