@@ -107,17 +107,18 @@
   }
 
 
+
   Game.prototype.compare = function() {
 
     if (this.pile.length - 1 > this.pile.length - 2) {
       this.pile.push(game.player2.hand);
       this.pile = [];
     }
-    if (this.pile.length - 2 > this.pile.length - 1) {
+    else if (this.pile.length - 2 > this.pile.length - 1) {
       this.pile.push(game.player1.hand);
       this.pile = [];
     } else
-      while (this.pile.length - 1 == game.pile.length - 2) {
+      (this.pile.length - 1 == game.pile.length - 2) {
         this.draw();
       }
   }
