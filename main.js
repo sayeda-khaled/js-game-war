@@ -116,9 +116,8 @@
       // this.pile.push(game.player1.hand);
       // this.pile = [];
     } else if (player1Card.number === player2Card.number) {
-      this.player1.hand = [...this.player1.hand, ...this.pot];
-      this.pot = [];
-      console.log('player 1 wins');
+      console.log('War!');
+
     }
   }
 
